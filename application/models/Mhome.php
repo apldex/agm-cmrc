@@ -219,6 +219,7 @@ class Mhome extends CI_Model{
   // }
 
   public function checkStock_by_District($idProd, $idDistrict){
+    // TODO: Get Sub price
     $this->db->select('a.id_store, a.id_product, a.id_product_size, a.postpone,
      a.stock_akhir, b.price, b.id as idTr, c.id, c.name, c.size');
     $this->db->from('tr_product a');

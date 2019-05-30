@@ -1,0 +1,8 @@
+1. Model Mhome -> check stock price (?): get sub-price from database. Table: tr_product
+2. view include/footer -> handle sub-price. if sub-price not null: regular price (price) dicoret, display sub-price.
+3. Set sub-price as regular price (cart should use sub-price if sub-price exists)
+
+For testing:
+1. Go to brands -> aireloome -> imperial heritage
+2. Pick cengkareng (DKI Jakarta -> Jakarta Barat -> Cengkareng)
+3. Edit sub-price: super admin -> products -> imperial heritage [i] -> edit product

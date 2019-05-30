@@ -312,6 +312,9 @@
 </script>
 <script>
     // process quantity or size item
+    // TODO: Get Sub price
+    // If sub price not null, strike regular price, show sub-price
+    // Set sub-price as regular price (cart will get sub-price)
     $(document).ready(function () {
         const formatter = new Intl.NumberFormat('id-ID', {
             minimumFractionDigits: 0
