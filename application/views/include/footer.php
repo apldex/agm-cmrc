@@ -342,9 +342,25 @@
                             $('#shoppingForm').show();
                             $("#size").attr('disabled', false);
                             $("#size").empty();
-                            var price = `<span class='line-through fw-500 fs-15 mr-15'>Rp.<span class='totalprice' value="${response[0].price}">${formatter.format(response[0].price)}</span></span>
-                            Rp.<span class='totalprice' value="${response[0].price}">${formatter.format(response[0].price)}</span>`
+
+                            // check whether subprice null or not 
+
+                            if(response.sub_price == 0) { 
+                            var price = `Rp.<span class='totalpr ice' value="${response.price}">${formatter.format(response.price)}</span>
+                            `
                             $("#price2").html(price);
+                            } else { 
+                                // result for the subprice
+                            var price = `<span class='line-through fw-500 fs-15 mr-15'>Rp.<span class='totalprice' value="${response.price}">${formatter.format(response.price)}</span></span>
+                            Rp.<span class='totalprice' value="${response.sub_price}">${formatter.format(response.sub_price)}</span>`
+                            $("#price2").html(price);
+
+                            }
+                            
+                            // var price = `<span class='line-through fw-500 fs-15 mr-15'>Rp.<span class='totalprice' value="${response[0].price}">${formatter.format(response[0].price)}</span></span>
+                            // Rp.<span class='totalprice' value="${response[0].sub_price}">${formatter.format(response[0].sub_price)}</span>`
+                            // $("#price2").html(price);
+                            
                             //$('#price2').append("<span class='totalprice' value=" + response[0].price + "><?//=number_format(floatval(), 0, ',', '.')?>//" + "</span>");
 
                             $("#price").val(response[0].price);
@@ -380,9 +396,23 @@
                     dataType: "json",
                     success: function (response) {
                         console.log(response);
-                        $("#price2").html("Rp. " + formatter.format(response.price));
-                        $("#price").val(response.price);
-                        $("#sku").val(response.id);
+                        // $("#price2").html("Rp. " + formatter.format(response.price));
+                        // $("#price").val(response.price);
+                        // $("#sku").val(response.id);
+
+                        
+                         if(response.sub_price == 0 ) { 
+                             
+                            var price = `Rp.<span class='totalprice' value="${response.price}">${formatter.format(response.price)}</span>
+                            `
+                            $("#price2").html(price);
+                        } else { 
+                             
+                            var price = `<span class='line-through fw-500 fs-15 mr-15'>Rp.<span class='totalprice' value="${response.price}">${formatter.format(response.price)}</span></span>
+                            Rp.<span class='totalprice' value="${response.sub_price}">${formatter.format(response.sub_price)}</span>`
+                            $("#price2").html(price);
+
+                        }
                     }
                 });
             }
